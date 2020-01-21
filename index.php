@@ -44,14 +44,9 @@ function ping($host,$port=3306,$timeout=10)
 $database_up = ping($config['hostname']);
 
 
-$rgbColor = array();
+$background_colors = array('#282E33', '#25373A', '#164852', '#495E67', '#FF3838');
 
-//Create a loop.
-foreach(array('r', 'g', 'b') as $color){
-    //Generate a random number between 0 and 255.
-    $rgbColor[$color] = mt_rand(0, 255);
-}
-
+$rand_background = $background_colors[array_rand($background_colors)];
 ?>
 
 <html><head>
@@ -62,7 +57,7 @@ foreach(array('r', 'g', 'b') as $color){
 <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
 
-</head><body  style="background-color: rgb(<?php implode(",", $rgbColor); ?>);">
+</head><body  style="background: <?php echo $rand_background; ?>;">
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/all.css">
 
 <div class="container">
