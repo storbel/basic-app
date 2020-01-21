@@ -176,11 +176,8 @@
 
 </aside> <!-- col.// -->
 
-
 <aside class="col-sm-6">
 <p></p>
-
-
 <div class="card">
 	<article class="card-group-item">
 		<header class="card-header">
