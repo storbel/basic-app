@@ -25,7 +25,25 @@ if ($result->num_rows > 0) {
 
 
 // Close Connection
-$conn->close(); ?>
+$conn->close();
+
+
+function ping($host,$port=3306,$timeout=10)
+{
+        $fsock = fsockopen($host, $port, $errno, $errstr, $timeout);
+        if ( ! $fsock )
+        {
+                return FALSE;
+        }
+        else
+        {
+                return TRUE;
+        }
+}
+
+$database_up = ping($config['hostname']);
+
+?>
 
 <html><head>
 
@@ -58,8 +76,6 @@ $conn->close(); ?>
               <p  class="list-group-item">PHP Version : <span class="float-right badge badge-light round"><?php echo $_ENV['PHP_VER_SHORT']; ?></span> </p>
               <p  class="list-group-item"> GIT COMMIT :  <span class="float-right badge badge-light round"><?php echo $_ENV['OPENSHIFT_BUILD_COMMIT']; ?> </p>
 			</div>  <!-- list-group .// -->
-
-
 
 		</div>
 	</article> <!-- card-group-item.// -->
@@ -125,8 +141,8 @@ $conn->close(); ?>
 
             <p  class="list-group-item">Database exist :
             <?php
-                if ($dbSuccess) {echo '<span class="float-right label label-success round">Success';}
-                        else {echo '<span class=" float-right label label-danger round">Failure</label>';}
+                if ($database_up) {echo '<span class="float-right label label-success round">Success';}
+                        else {echo '<span class=" float-right label label-danger round">Failure';}
                  ?>
                 </span> </p>
 
@@ -134,7 +150,7 @@ $conn->close(); ?>
                 <p  class="list-group-item">Connected to database :
                 <?php
                 if ($dbSuccess) {echo '<span class=" float-right label label-success round">Success';}
-                        else {echo '<span class=" float-rightlabel label-danger round">Failure';}
+                        else {echo '<span class=" float-right label label-danger round">Failure';}
                  ?>
 
                 </span> </p>
@@ -142,7 +158,7 @@ $conn->close(); ?>
                 <p  class="list-group-item">Database Scripts Version:
                 <?php
                         if ($dbVersion) {echo '<span class=" float-right label label-info round">'. $dbVersion;}
-                        else {echo '<span class=" float-rightlabel label-danger round">Failed to load version data';}
+                        else {echo '<span class=" float-right label label-danger round">Failed to load version data';}
                         ?>
 
                 </span> </p>
@@ -163,7 +179,7 @@ $conn->close(); ?>
 		<div class="filter-content">
             <p  class="list-group-item">volume files exist : <?php
                         if (is_dir('/files')) {echo '<span class=" float-right label label-success round"> volume mounted';}
-                        else {echo '<span class=" float-rightlabel label-danger round">No volume mounted';}
+                        else {echo '<span class=" float-right label label-danger round">No volume mounted';}
                         ?></span> </p>
             </div>
 	</article> <!-- card-group-item.// -->
