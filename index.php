@@ -83,8 +83,6 @@ $database_up = ping($config['hostname']);
 </div> <!-- card.// -->
 
 
-
-
 	</aside> <!-- col.// -->
 	<aside class="col-sm-4">
 
