@@ -92,8 +92,9 @@ $database_up = ping($config['hostname']);
 		<header class="card-header"><h6 class="title">Environment variable</h6></header>
 		<div class="filter-content">
 			<div class="list-group list-group-flush">
-            <p  class="list-group-item">quote 1 : <span class="float-right badge badge-light round"><?php echo $_ENV['quote1']; ?></span> </p>
-            <p  class="list-group-item">quote 2 : <span class="float-right badge badge-light round"><?php echo $_ENV['quote2']; ?></span> </p>
+            <p  class="list-group-item">Color : <span class="float-right badge badge-light round"><?php echo $_ENV['color']; ?></span> </p>
+            <p  class="list-group-item">Fruit : <span class="float-right badge badge-light round"><?php echo $_ENV['fruit']; ?></span> </p>
+            <p  class="list-group-item">Car : <span class="float-right badge badge-light round"><?php echo $_ENV['car']; ?></span> </p>
 			</div>  <!-- list-group .// -->
 		</div>
 	</article> <!-- card-group-item.// -->
