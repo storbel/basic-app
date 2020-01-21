@@ -78,32 +78,12 @@ $conn->close(); ?>
 		<header class="card-header"><h6 class="title">Environment variable</h6></header>
 		<div class="filter-content">
 			<div class="list-group list-group-flush">
-            <p  class="list-group-item">Pod Name : <span class="float-right badge badge-light round"><?php echo $_ENV['HOSTNAME']; ?></span> </p>
-            <p  class="list-group-item">Pod Name : <span class="float-right badge badge-light round"><?php echo $_ENV['HOSTNAME']; ?></span> </p>
-            <p  class="list-group-item">Pod Name : <span class="float-right badge badge-light round"><?php echo $_ENV['HOSTNAME']; ?></span> </p>
-            <p  class="list-group-item">Pod Name : <span class="float-right badge badge-light round"><?php echo $_ENV['HOSTNAME']; ?></span> </p>
+            <p  class="list-group-item">quote 1 : <span class="float-right badge badge-light round"><?php echo $_ENV['quote1']; ?></span> </p>
+            <p  class="list-group-item">quote 2 : <span class="float-right badge badge-light round"><?php echo $_ENV['quote2']; ?></span> </p>
 			</div>  <!-- list-group .// -->
 		</div>
 	</article> <!-- card-group-item.// -->
-	<article class="card-group-item">
-		<header class="card-header"><h6 class="title">Color check</h6></header>
-		<div class="filter-content">
-			<div class="card-body">
-				<label class="btn btn-danger">
-				  <input class="" type="checkbox" name="myradio" value="">
-				  <span class="form-check-label">Red</span>
-				</label>
-				<label class="btn btn-success">
-				  <input class="" type="checkbox" name="myradio" value="">
-				  <span class="form-check-label">Green</span>
-				</label>
-				<label class="btn btn-primary">
-				  <input class="" type="checkbox" name="myradio" value="">
-				  <span class="form-check-label">Blue</span>
-				</label>
-			</div> <!-- card-body.// -->
-		</div>
-	</article> <!-- card-group-item.// -->
+
 </div> <!-- card.// -->
 
 
@@ -143,22 +123,29 @@ $conn->close(); ?>
 
 
 
-            <p  class="list-group-item">Database exist : <span class="float-right badge badge-light round">
-                                                                                                                <label class="btn btn-success">
-                                                                                                                        <input class="" type="checkbox" name="myradio" value="">
-                                                                                                                        <span class="form-check-label">Green</span>
-                                                                                                                </label>
+            <p  class="list-group-item">Database exist :
+            <?php
+                if ($dbSuccess) {echo '<span class="float-right label label-success round">Success';}
+                        else {echo '<span class=" float-right label label-danger round">Failure</label>';}
+                 ?>
                 </span> </p>
 
 
-                <p  class="list-group-item">Connected to database : <span class="float-right badge badge-light round">
-                                                                                                                <label class="btn btn-danger">
-                                                                                                                    <input class="" type="checkbox" name="myradio" value="">
-                                                                                                                    <span class="form-check-label">Failure</span>
-                                                                                                                </label>
+                <p  class="list-group-item">Connected to database :
+                <?php
+                if ($dbSuccess) {echo '<span class=" float-right label label-success round">Success';}
+                        else {echo '<span class=" float-rightlabel label-danger round">Failure';}
+                 ?>
+
                 </span> </p>
 
+                <p  class="list-group-item">Database Scripts Version:
+                <?php
+                        if ($dbVersion) {echo '<span class=" float-right label label-info round">'. $dbVersion;}
+                        else {echo '<span class=" float-rightlabel label-danger round">Failed to load version data';}
+                        ?>
 
+                </span> </p>
 		</div>
 	</article> <!-- card-group-item.// -->
 
@@ -174,7 +161,39 @@ $conn->close(); ?>
 			<h6 class="title">Persistent volume</h6>
 		</header>
 		<div class="filter-content">
-            <p  class="list-group-item">volume files exist : <span class="float-right badge badge-light round"><?php echo is_dir('/files'); ?></span> </p>
+            <p  class="list-group-item">volume files exist : <?php
+                        if (is_dir('/files')) {echo '<span class=" float-right label label-success round"> volume mounted';}
+                        else {echo '<span class=" float-rightlabel label-danger round">No volume mounted';}
+                        ?></span> </p>
+            </div>
+	</article> <!-- card-group-item.// -->
+
+    <article class="card-group-item">
+		<header class="card-header">
+			<h6 class="title">File listing : </h6>
+		</header>
+		<div class="filter-content">
+            <p class="list-group-item">
+            <?php
+                            $dir = "/files/";
+
+
+                            // Sort in descending order
+                            $folder= scandir($dir,1);
+                            echo '
+                            <div class="alert alert-info" role="alert">
+                              File listing of /files/
+                            </div>';
+                                       echo '<table class="table">
+                                                <thead class="thead-light">
+                                                     <tr><th>File name</th></tr>
+                                                 </thead>';
+                                            foreach ($folder as &$file) {
+                                                echo "<tr><td>".$file."</td></tr>";
+                                            }
+                                            echo "</table>";
+                ?>
+            </p>
 		</div>
 	</article> <!-- card-group-item.// -->
 
