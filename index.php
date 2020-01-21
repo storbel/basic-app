@@ -15,13 +15,13 @@
 
 <div class="row">
 	<aside class="col-sm-4">
-<p>Filter 1</p>
+<p>POD DETAILS</p>
 
 
 <div class="card">
 	<article class="card-group-item">
 		<header class="card-header">
-			<h6 class="title">Brands </h6>
+			<h6 class="title">Pod details </h6>
 		</header>
 		<div class="filter-content">
 			<div class="card-body">
@@ -29,7 +29,7 @@
 				<label class="form-check">
 				  <input class="form-check-input" type="checkbox" value="">
 				  <span class="form-check-label">
-				    Mersedes Benz
+				    Pod Name : <?php echo $_ENV['HOSTNAME']; ?>
 				  </span>
 				</label> <!-- form-check.// -->
 				<label class="form-check">
@@ -124,7 +124,7 @@
 
 	</aside> <!-- col.// -->
 	<aside class="col-sm-4">
-<p>Filter  3</p>
+<p>NETWORK DETAILS</p>
 
 
 
