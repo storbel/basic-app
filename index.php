@@ -1,3 +1,32 @@
+<?php
+// Load Config
+$config = parse_ini_file('config.ini');
+
+// Declare Variables
+$dbSuccess = false;
+$dbVersion = false;
+
+// Connect to SQL Server
+$conn = @new mysqli($config['hostname'], $config['username'], $config['password'], $config['dbname']);
+
+if ($conn->connect_errno) {
+}
+else {
+    $dbSuccess = true;
+}
+$sql = "SELECT version FROM dbversion ORDER BY id DESC LIMIT 1";
+$result = $conn->query($sql);
+if ($result->num_rows > 0) {
+    // output data of each row
+    while($row = $result->fetch_assoc()) {
+        $dbVersion = $row['version'];
+    }
+}
+
+
+// Close Connection
+$conn->close(); ?>
+
 <html><head>
 
 
@@ -111,7 +140,25 @@
 			<h6 class="title">Database connectivity</h6>
 		</header>
 		<div class="filter-content">
-            <p  class="list-group-item">BASIC_APP_SERVICE_HOST : <span class="float-right badge badge-light round"><?php echo $_ENV['BASIC_APP_SERVICE_HOST']; ?></span> </p>
+
+
+
+            <p  class="list-group-item">Database exist : <span class="float-right badge badge-light round">
+                                                                                                                <label class="btn btn-success">
+                                                                                                                        <input class="" type="checkbox" name="myradio" value="">
+                                                                                                                        <span class="form-check-label">Green</span>
+                                                                                                                </label>
+                </span> </p>
+
+
+                <p  class="list-group-item">Connected to database : <span class="float-right badge badge-light round">
+                                                                                                                <label class="btn btn-danger">
+                                                                                                                    <input class="" type="checkbox" name="myradio" value="">
+                                                                                                                    <span class="form-check-label">Failure</span>
+                                                                                                                </label>
+                </span> </p>
+
+
 		</div>
 	</article> <!-- card-group-item.// -->
 
