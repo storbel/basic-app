@@ -24,24 +24,33 @@
 			<h6 class="title">Pod details </h6>
 		</header>
 		<div class="filter-content">
+
+        <div class="list-group list-group-flush">
+			  <p  class="list-group-item">Pod Name : <span class="float-right badge badge-light round"><?php echo $_ENV['HOSTNAME']; ?></span> </p>
+			  <a href="#" class="list-group-item">Dapibus ac facilisis  <span class="float-right badge badge-light round">3</span>  </a>
+			  <a href="#" class="list-group-item">Morbi leo risus <span class="float-right badge badge-light round">32</span>  </a>
+			  <a href="#" class="list-group-item">Another item <span class="float-right badge badge-light round">12</span>  </a>
+			</div>  <!-- list-group .// -->
+
+
 			<div class="card-body">
 			<form>
 				<label class="form-check">
 				  <input class="form-check-input" type="checkbox" value="">
 				  <span class="form-check-label">
-				    Pod Name : <?php echo $_ENV['HOSTNAME']; ?>
+
 				  </span>
 				</label> <!-- form-check.// -->
 				<label class="form-check">
 				  <input class="form-check-input" type="checkbox" value="">
 				  <span class="form-check-label">
-				    Nissan Altima
+				    PHP Version : <?php echo $_ENV['PHP_VER_SHORT']; ?>
 				  </span>
 				</label>  <!-- form-check.// -->
 				<label class="form-check">
 				  <input class="form-check-input" type="checkbox" value="">
 				  <span class="form-check-label">
-				    Another Brand
+				    GIT COMMIT : <?php echo $_ENV['OPENSHIFT_BUILD_COMMIT']; ?>
 				  </span>
 				</label>  <!-- form-check.// -->
 			</form>
@@ -123,7 +132,7 @@
 
 
 	</aside> <!-- col.// -->
-	<aside class="col-sm-4">
+<aside class="col-sm-4">
 <p>NETWORK DETAILS</p>
 
 
@@ -134,58 +143,63 @@
 			<h6 class="title">Range input </h6>
 		</header>
 		<div class="filter-content">
-			<div class="card-body">
-			<div class="form-row">
-			<div class="form-group col-md-6">
-			  <label>Min</label>
-			  <input type="number" class="form-control" id="inputEmail4" placeholder="$0">
-			</div>
-			<div class="form-group col-md-6 text-right">
-			  <label>Max</label>
-			  <input type="number" class="form-control" placeholder="$1,0000">
-			</div>
-			</div>
-			</div> <!-- card-body.// -->
+            <p  class="list-group-item">BASIC_APP_SERVICE_HOST : <span class="float-right badge badge-light round"><?php echo $_ENV['BASIC_APP_SERVICE_HOST']; ?></span> </p>
 		</div>
 	</article> <!-- card-group-item.// -->
-	<article class="card-group-item">
-		<header class="card-header">
-			<h6 class="title">Selection </h6>
-		</header>
-		<div class="filter-content">
-			<div class="card-body">
-				<div class="custom-control custom-checkbox">
-					<span class="float-right badge badge-light round">52</span>
-				  	<input type="checkbox" class="custom-control-input" id="Check1">
-				  	<label class="custom-control-label" for="Check1">Samsung</label>
-				</div> <!-- form-check.// -->
 
-				<div class="custom-control custom-checkbox">
-					<span class="float-right badge badge-light round">132</span>
-				  	<input type="checkbox" class="custom-control-input" id="Check2">
-				 	<label class="custom-control-label" for="Check2">Black berry</label>
-				</div> <!-- form-check.// -->
-
-				<div class="custom-control custom-checkbox">
-					<span class="float-right badge badge-light round">17</span>
-				  	<input type="checkbox" class="custom-control-input" id="Check3">
-				  	<label class="custom-control-label" for="Check3">Samsung</label>
-				</div> <!-- form-check.// -->
-
-				<div class="custom-control custom-checkbox">
-					<span class="float-right badge badge-light round">7</span>
-				  	<input type="checkbox" class="custom-control-input" id="Check4">
-				  	<label class="custom-control-label" for="Check4">Other Brand</label>
-				</div> <!-- form-check.// -->
-			</div> <!-- card-body.// -->
-		</div>
-	</article> <!-- card-group-item.// -->
 </div> <!-- card.// -->
 
-
-
-	</aside> <!-- col.// -->
+</aside> <!-- col.// -->
 </div> <!-- row.// -->
+
+
+
+
+<div class="row">
+
+<aside class="col-sm-6">
+<p>Database connectivity</p>
+
+
+
+<div class="card">
+	<article class="card-group-item">
+		<header class="card-header">
+			<h6 class="title">Database connectivity</h6>
+		</header>
+		<div class="filter-content">
+            <p  class="list-group-item">BASIC_APP_SERVICE_HOST : <span class="float-right badge badge-light round"><?php echo $_ENV['BASIC_APP_SERVICE_HOST']; ?></span> </p>
+		</div>
+	</article> <!-- card-group-item.// -->
+
+</div> <!-- card.// -->
+
+</aside> <!-- col.// -->
+
+
+<aside class="col-sm-6">
+<p></p>
+
+
+<div class="card">
+	<article class="card-group-item">
+		<header class="card-header">
+			<h6 class="title">Persistent volume</h6>
+		</header>
+		<div class="filter-content">
+            <p  class="list-group-item">BASIC_APP_SERVICE_HOST : <span class="float-right badge badge-light round"><?php echo $_ENV['BASIC_APP_SERVICE_HOST']; ?></span> </p>
+		</div>
+	</article> <!-- card-group-item.// -->
+
+</div> <!-- card.// -->
+
+</aside> <!-- col.// -->
+
+
+
+
+
+
 
 </div>
 <!--container end.//-->
