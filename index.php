@@ -76,9 +76,15 @@ $rand_background = $background_colors[array_rand($background_colors)];
 		<div class="filter-content">
 
             <div class="list-group list-group-flush">
-			  <p  class="list-group-item">Pod Name : <span class="float-right badge badge-light round"><?php echo $_ENV['HOSTNAME']; ?></span> </p>
-              <p  class="list-group-item">PHP Version : <span class="float-right badge badge-light round"><?php echo $_ENV['PHP_VER_SHORT']; ?></span> </p>
-              <p  class="list-group-item"> GIT COMMIT :  <span class="float-right badge badge-light round"><?php echo $_ENV['OPENSHIFT_BUILD_COMMIT']; ?> </p>
+			  <p  class="list-group-item">Pod Name : <span class="float-right label label-primary"><?php echo $_ENV['HOSTNAME']; ?></span> </p>
+              <p  class="list-group-item">PHP Version : <span class="float-right label label-primary"><?php echo $_ENV['PHP_VER_SHORT']; ?></span> </p>
+              <p  class="list-group-item"> GIT COMMIT :  <span class="float-right label label-primary"><?php echo $_ENV['OPENSHIFT_BUILD_COMMIT']; ?> </p>
+              <p  class="list-group-item"> HTTPD DATA_PATH :  <span class="float-right label label-primary"><?php echo $_ENV['HTTPD_DATA_PATH']; ?> </p>
+
+
+
+
+
 			</div>  <!-- list-group .// -->
 
 		</div>
@@ -96,9 +102,9 @@ $rand_background = $background_colors[array_rand($background_colors)];
 		<header class="card-header"><h6 class="title">Environment variable</h6></header>
 		<div class="filter-content">
 			<div class="list-group list-group-flush">
-            <p  class="list-group-item">Color : <span class="float-right badge badge-light round"><?php echo $_ENV['color']; ?></span> </p>
-            <p  class="list-group-item">Fruit : <span class="float-right badge badge-light round"><?php echo $_ENV['fruit']; ?></span> </p>
-            <p  class="list-group-item">Car : <span class="float-right badge badge-light round"><?php echo $_ENV['car']; ?></span> </p>
+            <p  class="list-group-item">Color : <span class="float-right badge badge-info round"><?php echo $_ENV['color']; ?></span> </p>
+            <p  class="list-group-item">Fruit : <span class="float-right badge badge-info round"><?php echo $_ENV['fruit']; ?></span> </p>
+            <p  class="list-group-item">Car : <span class="float-right badge badge-info round"><?php echo $_ENV['car']; ?></span> </p>
 			</div>  <!-- list-group .// -->
 		</div>
 	</article> <!-- card-group-item.// -->
@@ -116,7 +122,7 @@ $rand_background = $background_colors[array_rand($background_colors)];
 			<h6 class="title">NETWORK DETAILS </h6>
 		</header>
 		<div class="filter-content">
-            <p  class="list-group-item">BASIC_APP_SERVICE_HOST : <span class="float-right badge badge-light round"><?php echo $_ENV['BASIC_APP_SERVICE_HOST']; ?></span> </p>
+            <p  class="list-group-item">ADVANCED_APP_SERVICE_HOST : <span class="float-right badge badge-light round"><?php echo $_ENV['ADVANCED_APP_SERVICE_HOST']; ?></span> </p>
 		</div>
 	</article> <!-- card-group-item.// -->
 
@@ -144,24 +150,24 @@ $rand_background = $background_colors[array_rand($background_colors)];
 
             <p  class="list-group-item">Database exist :
             <?php
-                if ($database_up) {echo '<span class="float-right label label-success round">Success';}
-                        else {echo '<span class=" float-right label label-danger round">Failure';}
+                if ($database_up) {echo '<span class="float-right label label-success">Success';}
+                        else {echo '<span class=" float-right label label-danger">Failure';}
                  ?>
                 </span> </p>
 
 
                 <p  class="list-group-item">Connected to database :
                 <?php
-                if ($dbSuccess) {echo '<span class=" float-right label label-success round">Success';}
-                        else {echo '<span class=" float-right label label-danger round">Failure';}
+                if ($dbSuccess) {echo '<span class=" float-right label label-success ">Success';}
+                        else {echo '<span class=" float-right label label-danger ">Failure';}
                  ?>
 
                 </span> </p>
 
                 <p  class="list-group-item">Database Scripts Version:
                 <?php
-                        if ($dbVersion) {echo '<span class=" float-right label label-info round">'. $dbVersion;}
-                        else {echo '<span class=" float-right label label-danger round">Failed to load version data';}
+                        if ($dbVersion) {echo '<span class=" float-right label label-info ">'. $dbVersion;}
+                        else {echo '<span class=" float-right label label-danger ">Failed to load version data';}
                         ?>
 
                 </span> </p>
