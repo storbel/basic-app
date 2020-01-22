@@ -57,13 +57,13 @@ $rand_background = $background_colors[array_rand($background_colors)];
 <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
 
-</head><body  style="background: <?php echo $rand_background; ?>;">
+</head><body  >
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/all.css">
 
 <div class="container">
 <br>  <p class="text-center">Basic App being more complex </p>
 <hr>
-
+<div class="row" style="background: <?php echo $rand_background; ?>;"><h1><?php echo $_ENV['HOSTNAME']; ?></h1></div>
 <div class="row">
 	<aside class="col-sm-4">
 
