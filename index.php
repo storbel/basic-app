@@ -44,7 +44,7 @@ function ping($host,$port=3306,$timeout=10)
 $database_up = ping($config['hostname']);
 
 
-$background_colors = array('#282E33', '#25373A', '#164852', '#495E67', '#FF3838');
+$background_colors = array('#e6ffe6', '#b3ccff', '#ffccff', '#fff5cc', '#ffe6e6');
 
 $rand_background = $background_colors[array_rand($background_colors)];
 ?>
@@ -57,13 +57,13 @@ $rand_background = $background_colors[array_rand($background_colors)];
 <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
 
-</head><body  >
+</head><body style="background: <?php echo $rand_background; ?>;"  >
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/all.css">
 
 <div class="container">
-<br>  <p class="text-center">Basic App being more complex </p>
+<br>  <p class="text-center" >Basic App being more complex </p>
 <hr>
-<div class="row" style="background: <?php echo $rand_background; ?>;"><h1><?php echo $_ENV['HOSTNAME']; ?></h1></div>
+<div class="row" ><h1><?php echo $_ENV['HOSTNAME']; ?></h1></div>
 <div class="row">
 	<aside class="col-sm-4">
 
