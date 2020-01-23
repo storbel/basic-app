@@ -151,15 +151,15 @@ $rand_background = $background_colors[array_rand($background_colors)];
             <p  class="list-group-item">Database exist :
             <?php
                 if ($database_up) {echo '<span class="float-right label label-success">Success';}
-                        else {echo '<span class=" float-right label label-danger">Failure';}
+                        else {echo '<span class="float-right label label-danger">Failure -> '.$config['hostname'];}
                  ?>
                 </span> </p>
 
 
                 <p  class="list-group-item">Connected to database :
                 <?php
-                if ($dbSuccess) {echo '<span class=" float-right label label-success ">Success';}
-                        else {echo '<span class=" float-right label label-danger ">Failure';}
+                if ($dbSuccess) {echo '<span class="float-right label label-success ">Success';}
+                        else {echo '<span class="float-right label label-danger ">Failure';}
                  ?>
 
                 </span> </p>
