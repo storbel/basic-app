@@ -187,7 +187,7 @@ $rand_background = $background_colors[array_rand($background_colors)];
 		</header>
 		<div class="filter-content">
             <p  class="list-group-item">volume files exist : <?php
-                        if (is_dir('/files')) {echo '<span class=" float-right label label-success round"> volume mounted';}
+                        if (is_dir('/var/www/data')) {echo '<span class=" float-right label label-success round"> volume mounted';}
                         else {echo '<span class=" float-right label label-danger round">No volume mounted';}
                         ?></span> </p>
             </div>
@@ -200,14 +200,14 @@ $rand_background = $background_colors[array_rand($background_colors)];
 		<div class="filter-content">
             <p class="list-group-item">
             <?php
-                            $dir = "/files/";
+                            $dir = "/var/www/data";
 
 
                             // Sort in descending order
                             $folder= scandir($dir,1);
                             echo '
                             <div class="alert alert-info" role="alert">
-                              File listing of /files/
+                              File listing of /var/www/data
                             </div>';
                                        echo '<table class="table">
                                                 <thead class="thead-light">
