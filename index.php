@@ -71,7 +71,7 @@ $rand_background = $background_colors[array_rand($background_colors)];
 <div class="card">
 	<article class="card-group-item">
 		<header class="card-header">
-			<h6 class="title">Pod details </h6>
+			<h6 class="title">Pod detailsx </h6>
 		</header>
 		<div class="filter-content">
 
