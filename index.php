@@ -14,7 +14,7 @@ if ($conn->connect_errno) {
 else {
     $dbSuccess = true;
 }
-$sql = "SELECT version FROM dbversion ORDER BY id DESC LIMIT 1";
+$sql = "SELECT version FROM dbversion ORDER BY id DESC LIMIT 1;";
 $result = $conn->query($sql);
 if ($result->num_rows > 0) {
     // output data of each row
@@ -57,7 +57,7 @@ $rand_background = $background_colors[array_rand($background_colors)];
 <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
 
-</head><body style="background: <?php echo $rand_background; ?>;"  >
+</head><body>
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/all.css">
 
 <div class="container">
@@ -148,7 +148,7 @@ $rand_background = $background_colors[array_rand($background_colors)];
 
 
 
-            <p  class="list-group-item">Database exist :
+            <p  class="list-group-item">Database reacheable :
             <?php
                 if ($database_up) {echo '<span class="float-right label label-success">Success';}
                         else {echo '<span class="float-right label label-danger">Failure -> '.$config['hostname'];}
